@@ -1,4 +1,4 @@
-import EditorComponent from "@/components/editorComponent";
+import EditorComponent from "@/components/EditorComponent";
 import { ModeToggle } from "@/components/mode-toggle-btn";
 import React from "react";
 
