@@ -12,10 +12,10 @@ import {
 
 import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
 import { useTheme } from "next-themes";
+import { Button } from "./ui/button";
 
 const EditorComponent = () => {
-
-  const {theme, setTheme} = useTheme()
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="min-h-screen dark:bg-slate-900 rounded-2xl shadow-2xl py-6 px-8">
@@ -49,9 +49,13 @@ const EditorComponent = () => {
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel defaultSize={50} minSize={35}>
-              <div className="flex h-[200px] items-center justify-center p-6">
-                <span className="font-semibold">One</span>
-              </div>
+                <div className="p-4 flex items-center justify-between">
+                  <span className="font-semibold">Output</span>
+                  <Button className="" size={"lg"}>Run</Button>
+                </div>
+                <div className="">
+                  
+                </div>
             </ResizablePanel>
           </ResizablePanelGroup>
         </div>
