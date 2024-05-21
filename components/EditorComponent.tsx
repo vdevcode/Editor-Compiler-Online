@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { ModeToggle } from "./mode-toggle-btn";
 import SelectLanuages from "./SelectLanguages";
 
@@ -8,7 +10,13 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
+import Editor, { DiffEditor, useMonaco, loader } from "@monaco-editor/react";
+import { useTheme } from "next-themes";
+
 const EditorComponent = () => {
+
+  const {theme, setTheme} = useTheme()
+
   return (
     <div className="min-h-screen dark:bg-slate-900 rounded-2xl shadow-2xl py-6 px-8">
       <div className="flex item-center justify-between pb-3">
@@ -30,8 +38,13 @@ const EditorComponent = () => {
             className="w-full rounded-lg border dark:bg-slate-900"
           >
             <ResizablePanel defaultSize={50} minSize={35}>
-              <div className="flex h-[200px] items-center justify-center p-6">
-                <span className="font-semibold">One</span>
+              <div className="flex items-center justify-center p-6">
+                <Editor
+                  theme={theme === "dark" ? "vs-dark" : "vs-light"}
+                  height="90vh"
+                  defaultLanguage="javascript"
+                  defaultValue="// some comment"
+                />
               </div>
             </ResizablePanel>
             <ResizableHandle />
