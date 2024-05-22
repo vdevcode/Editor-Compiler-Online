@@ -50,7 +50,7 @@ const EditorComponent = () => {
             <ResizableHandle />
             <ResizablePanel defaultSize={50} minSize={35}>
                 <div className="p-4 flex items-center justify-between">
-                  <span className="font-semibold">Output</span>
+                  <span className="font-semibold">Outputs</span>
                   <Button className="" size={"lg"}>Run</Button>
                 </div>
                 <div className="">
