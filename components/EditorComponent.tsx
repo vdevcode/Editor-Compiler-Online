@@ -41,7 +41,7 @@ const EditorComponent = () => {
               <div className="flex items-center justify-center p-6">
                 <Editor
                   theme={theme === "dark" ? "vs-dark" : "vs-light"}
-                  height="90vh"
+                  height="100vh"
                   defaultLanguage="javascript"
                   defaultValue="// some comment"
                 />
@@ -49,14 +49,16 @@ const EditorComponent = () => {
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel defaultSize={50} minSize={35}>
-                <div className="p-4 flex items-center justify-between">
+              <div className=" bg-slate-400 dark:bg-slate-900 min-h-screen space-y-3">
+                <div className="flex items-center justify-between bg-slate-400 dark:bg-slate-950 px-6 py-2">
                   <span className="font-semibold">Outputs</span>
-                  <Button className="" size={"lg"}>Run</Button>
+                  <Button className="" size={"lg"}>
+                    Run
+                  </Button>
                 </div>
-                <div className="">
-                  
-                </div>
-            </ResizablePanel>
+                <div className=" h-full px-6">test</div>
+              </div>
+            </ResizablePanel> 
           </ResizablePanelGroup>
         </div>
       </div>
