@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { ModeToggle } from "./mode-toggle-btn";
 import SelectLanuages from "./SelectLanguages";
 
@@ -16,6 +16,18 @@ import { Button } from "./ui/button";
 
 const EditorComponent = () => {
   const { theme, setTheme } = useTheme();
+  const [sourceCode, setSourceCode] = useState("");
+  const editorRef = useRef(null);
+  function handleEditorDidMount(editor: any) {
+    editorRef.current = editor;
+    editor.focus();
+  }
+
+  function handleOnchange(value: string | undefined) {
+    if (value) {
+      setSourceCode(value);
+    }
+  }
 
   return (
     <div className="min-h-screen dark:bg-slate-900 rounded-2xl shadow-2xl py-6 px-8">
@@ -44,6 +56,9 @@ const EditorComponent = () => {
                   height="100vh"
                   defaultLanguage="javascript"
                   defaultValue="// some comment"
+                  onMount={handleEditorDidMount}
+                  value={sourceCode}
+                  onChange={handleOnchange}
                 />
               </div>
             </ResizablePanel>
@@ -58,7 +73,7 @@ const EditorComponent = () => {
                 </div>
                 <div className=" h-full px-6">test</div>
               </div>
-            </ResizablePanel> 
+            </ResizablePanel>
           </ResizablePanelGroup>
         </div>
       </div>
